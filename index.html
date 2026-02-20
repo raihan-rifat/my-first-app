@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense & Budget Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Daily Expense Planner</h1>
+      <p>Track daily spending, compare it with income, and get useful predictions.</p>
+    </header>
+
+    <section class="card">
+      <h2>Monthly Budget</h2>
+      <div class="row">
+        <label for="income">Monthly Income</label>
+        <input id="income" type="number" min="0" step="0.01" placeholder="e.g. 3500" />
+      </div>
+      <button id="saveIncome">Save Income</button>
+      <small id="incomeStatus" class="status"></small>
+    </section>
+
+    <section class="card">
+      <h2>Add Daily Expense</h2>
+      <form id="expenseForm">
+        <div class="grid">
+          <div class="row">
+            <label for="expenseDate">Date</label>
+            <input id="expenseDate" type="date" required />
+          </div>
+          <div class="row">
+            <label for="expenseName">Expense Name</label>
+            <input id="expenseName" type="text" placeholder="Coffee, Fuel, Groceries" required />
+          </div>
+          <div class="row">
+            <label for="expenseCategory">Category (optional)</label>
+            <input id="expenseCategory" type="text" placeholder="Food, Transport, etc" />
+          </div>
+          <div class="row">
+            <label for="expenseAmount">Amount</label>
+            <input id="expenseAmount" type="number" min="0" step="0.01" required />
+          </div>
+          <div class="row checkbox-row">
+            <label for="avoidable">Avoidable Cost?</label>
+            <input id="avoidable" type="checkbox" />
+          </div>
+        </div>
+        <button type="submit">Add Expense</button>
+      </form>
+    </section>
+
+    <section class="card stats">
+      <h2>Budget Overview</h2>
+      <div class="stat-grid">
+        <article>
+          <h3>Total Expenses</h3>
+          <p id="totalExpenses">$0.00</p>
+        </article>
+        <article>
+          <h3>Balance Left</h3>
+          <p id="balanceLeft">$0.00</p>
+        </article>
+        <article>
+          <h3>Over Budget</h3>
+          <p id="overBudget">$0.00</p>
+        </article>
+        <article>
+          <h3>Predicted Month-End Expense</h3>
+          <p id="prediction">$0.00</p>
+        </article>
+      </div>
+      <div class="notes">
+        <h3>Suggested Avoidable Costs</h3>
+        <ul id="avoidableSuggestions">
+          <li>Add expenses to get suggestions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Expense Categories</h2>
+      <ul id="categorySummary" class="summary-list">
+        <li>No expenses yet.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>All Expenses</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Avoidable</th>
+          </tr>
+        </thead>
+        <tbody id="expenseTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
